@@ -1,0 +1,31 @@
+﻿@using Dominio
+@model List<Reseña>
+
+
+<div>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Titulo</th>
+                <th scope="col">Contenido</th>
+                <th scope="col">Fecha</th>
+</thead>
+        <tbody>
+            @foreach (Reseña r in Model)
+            {
+                
+
+            <tr>
+                <td>@r.Titulo</td>
+                <td>@r.Contenido</td>
+                <td>@r.Fecha</td>
+                
+            </tr>
+            }
+
+     
+        </tbody>
+    </table>
+
+
+</div>

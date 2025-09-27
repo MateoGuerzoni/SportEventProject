@@ -1,0 +1,68 @@
+﻿@using Dominio
+@model List<Partido>
+    <form action="~/Operador/Busqueda">
+        <div class="mb-3">
+            <label>Fecha 1</label>
+            <input type="text" class="form-control" name="date1" id="date1" />
+        </div>
+        <div class="mb-3">
+            <label>Fecha 2</label>
+            <input type="text" class="form-control" name="date2" id="date2" />
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar Partido</button>
+    </form>
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Partidos</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Etapa</th>
+                    <th scope="col">Seleccion 1</th>
+                    <th scope="col">Seleccion 2</th>
+                    <th scope="col">Resultado</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Incidencias</th>
+</thead>
+            <tbody>
+                @foreach (Partido unPartido in Model)
+                {
+                    
+                        /*unPartido.GetType().Name*/
+                        if (unPartido.TipoDePartido().Equals("FasedeGrupo"))
+                        {
+                <tr>
+                    <td>@unPartido.FaseDelTorneo()</td>
+                    <td>@unPartido.Fecha</td>
+                    <td>@unPartido.FaseDelTorneo()</td>
+                    <td>@unPartido.DevolverSeleccionesVs()[0].Pais.Nombre -Goles @unPartido.CantGolesSel1() - Amarillas @unPartido.CantAmarillasSel1() -Rojas @unPartido.CantRojasSel1() </td>
+                    <td>@unPartido.DevolverSeleccionesVs()[1].Pais.Nombre -Goles @unPartido.CantGolesSel2() - Amarillas @unPartido.CantAmarillasSel2() -Rojas @unPartido.CantRojasSel2() </td>
+                    <td> @unPartido.FinalizarElPartido()</td>
+                    <td>@unPartido.Estado</td>
+                    <td><a href="~/Operador/PartidoDetallado/@unPartido.Id">Ver Incidencias del partido</a></td>
+                </tr>
+                    }
+                    else if (unPartido.TipoDePartido().Equals("FaseEliminatoria"))
+                      {
+            <tr>
+                <td>@unPartido.TipoDePartido()</td>
+                <td>@unPartido.Fecha</td>
+                <td>@unPartido.FaseDelTorneo()</td>
+                <td>@unPartido.DevolverSeleccionesVs()[0].Pais.Nombre -Goles @unPartido.CantGolesSel1() - Amarillas @unPartido.CantAmarillasSel1() -Rojas @unPartido.CantRojasSel1() </td>
+                <td>@unPartido.DevolverSeleccionesVs()[1].Pais.Nombre -Goles @unPartido.CantGolesSel2() - Amarillas @unPartido.CantAmarillasSel2() -Rojas @unPartido.CantRojasSel2() </td>
+                <td>@unPartido.FinalizarElPartido()</td>
+                <td>@unPartido.Estado</td>
+                <td><a href="~/Operador/PartidoDetallado/@unPartido.Id">Ver Incidencias del partido</a></td>
+
+
+
+            </tr>
+                        }
+                    }
+
+                
+            </tbody>
+        </table>
+
+    </div>

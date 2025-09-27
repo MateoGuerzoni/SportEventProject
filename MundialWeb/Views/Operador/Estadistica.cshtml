@@ -1,0 +1,83 @@
+﻿@model List<Reseña>
+@using Dominio
+
+<h1>Estadisticas</h1>
+
+<div>
+    <h2>Ver reseñas de periodista</h2>
+    
+    <form method="post">
+        <label>Ingrese Email de periodista a buscar</label>
+        <input type="text" name="FiltrarEmail" />
+        <input type="submit" value="Buscar"/>
+
+    </form>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Id Partido</th>
+                <th scope="col">Seleccion 1</th>
+                <th scope="col">Seleccion 2</th>
+                <th scope="col">Resultado</th>
+                <th scope="col">Periodista</th>
+
+
+
+
+
+</thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                
+
+            <tr>
+                <td>@item.Fecha</td>
+                <td>@item.Partido.Id</td>
+                <td>@item.Partido.DevolverSeleccionesVs()[0].Pais.Nombre</td>
+                <td>@item.Partido.DevolverSeleccionesVs()[1].Pais.Nombre</td>
+                <td>@item.Partido.Resultado</td>
+                <td>@item.Periodista.Nombre</td>
+            </tr>
+            }
+
+            
+        </tbody>
+
+
+        </table>
+    <p>@ViewBag.msg</p>
+</div>
+
+<div>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+            <th scope="col">Seleccion con mayor cantidad de goles</th>
+            
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.SeleccionesGoleadoras)
+            {
+            <tr>
+                <td>@item.Pais.Nombre</td>
+                
+
+
+
+
+            </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,38 @@
+﻿@using Dominio
+@model List<Periodista>
+
+
+<div>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Email</th>
+                <th scope="col">Reseñas</th>
+
+</thead>
+        <tbody>
+            @foreach (Periodista p in Model)
+            {
+                
+            <tr>
+
+
+                <td>@p.Id</td>
+                <td>@p.Nombre</td>
+                <td>@p.Apellido</td>
+                <td>@p.Email</td>
+                <td><a href="~/Operador/MostrarUnaReseña/?name=@p.Email">Mostrar Reseña</a></td>
+
+            </tr>
+
+             }
+
+
+
+            
+            
+        </tbody>
+    </table>
+</div>

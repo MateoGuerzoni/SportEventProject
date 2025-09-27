@@ -1,0 +1,29 @@
+﻿@using Dominio
+@{
+    ViewData["Title"] = "Log In";
+}
+<a href="~/Usuario/Inicio" class="btn btn-primary">Volver a Inicio</a>
+<br /><br /><br />
+<h2>Inicio de Sesion</h2>
+@if (ViewBag.error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.error
+    </div>
+}
+
+<form method="post">
+    <div class="mb-3">
+        <label for="Usuario" class="form-label">Email</label>
+        <input type="text" class="form-control" name="Email" id="Email">
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="Password" id="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Log in</button>
+</form>
+ 
+<br/>
+<a href="~/Login/Register"><button type="button" class="btn btn-primary">Register</button></a>

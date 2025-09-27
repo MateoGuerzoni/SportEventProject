@@ -1,0 +1,29 @@
+﻿@using Dominio
+@model List<Incidencia>
+
+
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Incidencia</th>
+                <th scope="col">Jugador</th>
+                <th scope="col">Seleccion</th>
+                <th scope="col">Minuto de Incidencia</th>
+
+
+</thead>
+        <tbody>
+            @foreach (Incidencia unaIncidencia in Model)
+            {
+            <tr>
+                <th scope="row">@unaIncidencia.TipoIncidencia</th>
+
+                <td>@unaIncidencia.Jugador.Nombre</td>
+                <td>@unaIncidencia.Jugador.Pais.Nombre</td>
+                <td>@unaIncidencia.MinutoDeIncidencia</td>
+            </tr>
+            }
+            
+        </tbody>
+    </table>

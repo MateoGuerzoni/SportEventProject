@@ -1,0 +1,37 @@
+﻿@using Dominio
+@model Reseña
+
+@if (ViewBag.error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.error
+    </div>
+}
+@if (ViewBag.Alta != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Alta
+    </div>
+}
+
+
+
+<h1>Hacer reseña</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Titulo</label>
+        <input type="text" class="form-control" name="Titulo" id="Titulo">
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Contenido</label>
+        <input type="text" class="form-control" name="Contenido" id="Contenido">
+    </div>
+    <div class="mb-3">
+        <input type="hidden" class="form-control" name="idPartido" id="idPartido" value="@ViewBag.IdPartido">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+

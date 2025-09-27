@@ -1,0 +1,15 @@
+# Visual Studio / .NET
+.vs/
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+packages/
+TestResults/
+**/Properties/PublishProfiles/*.pubxml.user
+# IDEs
+.vscode/
+.idea/

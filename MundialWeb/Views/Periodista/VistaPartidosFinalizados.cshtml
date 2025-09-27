@@ -1,0 +1,51 @@
+﻿@using Dominio
+@model List<Partido>
+
+<h1>Lista partidos finalizados</h1>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Seleccion1
+            </th>
+            <th>
+                Seleccion2
+            </th>
+            <th>
+               Agregar reseña
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Partido p in Model)
+        {
+            @if (p.Estado.Equals("Finalizado"))
+            {
+            <tr>
+
+                <td>
+                    @p.Fecha
+                </td>
+                <td>
+                    @p.DevolverSeleccionesVs()[0].Pais.Nombre
+                </td>
+                <td>
+                    @p.DevolverSeleccionesVs()[1].Pais.Nombre
+                </td>
+               
+                <td>
+                    @Html.ActionLink("Hacer reseña", "HacerReseña", new { id = p.Id }) 
+                   
+                </td>
+            </tr>
+                }
+            }
+    </tbody>
+</table>

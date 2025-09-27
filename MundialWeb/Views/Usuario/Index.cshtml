@@ -1,0 +1,28 @@
+﻿@using Dominio
+@model List<Seleccion>
+    
+
+<a href="~/Usuario/Inicio" class="btn btn-primary">Volver a Inicio</a>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Seleccion</th>
+                <th scope="col">Jugadores</th>
+
+</thead>
+        <tbody>
+            @foreach (Seleccion unaSeleccion in Model)
+            {
+            <tr>
+               
+                <td>@unaSeleccion.Pais.Nombre</td>
+                <td><a href="~/Usuario/Jugadores?name=@unaSeleccion.Pais.Nombre">Ver jugadores</a></td>
+                
+
+
+            </tr>
+            }
+        </tbody>
+    </table>
+    

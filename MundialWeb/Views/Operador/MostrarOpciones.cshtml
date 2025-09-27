@@ -1,0 +1,26 @@
+﻿@using Dominio
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Inicio";
+
+}
+
+<h2>@Context.Session.GetString("loggedname") - @Context.Session.GetString("TipoUsuario") </h2>
+
+<h2>Seleccione vista</h2>
+<a href="~/Operador/MostrarFinalizado" class="btn btn-primary">Mostrar Partidos</a>
+<a href="~/Operador/MostrarPendientes" class="btn btn-primary">Mostrar a Finalizar</a>
+<a href="~/Operador/MostrarPeriodistas" class="btn btn-primary">Mostrar Periodistas</a>
+<a href="~/Operador/Estadistica" class="btn btn-primary">Ver Estadisticas</a>
+<a href="~/Usuario/index" class="btn btn-primary">Mostrar Selecciones</a>
+<br />
+
+
+
+
+
+
+
+
+
+                                                                    

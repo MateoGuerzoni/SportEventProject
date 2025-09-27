@@ -1,0 +1,40 @@
+﻿@using Dominio
+@model List<Partido>
+               
+    
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Partidos</th>
+
+
+            </thead>
+            <tbody>
+                @foreach (Partido unPartido in Model)
+                {
+                    if (unPartido.Estado == "No finalizado")
+                    {<tr>
+                        <th scope="row">@unPartido.Id</th>
+
+                        <td>@unPartido.DevolverSeleccionesVs()[0].Pais.Nombre - @unPartido.DevolverSeleccionesVs()[1].Pais.Nombre</td>
+                        <td>@unPartido.Estado</td>
+
+
+                        <td><a href="~/Operador/PartidoAFinalizar/@unPartido.Id">Finalizar Partido</a></td>
+
+
+
+                    </tr>
+                    }
+                    
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+
+
+

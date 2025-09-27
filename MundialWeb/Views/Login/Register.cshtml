@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Register";
+}
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+@if (ViewBag.Alta != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Alta
+    </div>
+}
+
+
+
+
+<h1>Registraste</h1>
+<form method="post">
+    <div class="mb-3">
+        <label for="Nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" name="Nombre" id="Nombre">
+    </div>
+    <div class="mb-3">
+        <label for="Apellido" class="form-label">Apellido</label>
+        <input type="text" class="form-control" name="Apellido" id="Apellido">
+    </div>
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="Password" id="Password">
+    </div>
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="text" class="form-control" name="Email" id="Email">
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary">Register</button>
+
+</form>
+
+<a href="~/Login/Login"><button type="button" class="btn btn-primary">Log In</button></a>

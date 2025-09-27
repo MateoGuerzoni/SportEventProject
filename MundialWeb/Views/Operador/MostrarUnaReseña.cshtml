@@ -1,0 +1,47 @@
+﻿
+@using Dominio
+@model List<Reseña>
+
+
+    <div>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Id Partido</th>
+                    <th scope="col">Contenido</th>
+                    <th scope="col">Fase del torneo</th>
+
+                    <th scope="col">Selecciones</th>
+
+</thead>
+            <tbody>
+                @foreach (Reseña r in Model)
+                {
+                
+
+                <tr>
+                    <td>@r.Fecha</td>
+                    <td>@r.Titulo</td>
+                    <td>@r.Partido.Id</td>
+                    <td>@r.Contenido</td>
+                    @if (r.Partido.TipoDePartido().Equals("FasedeGrupo"))
+                    {
+                        <td>@r.Partido.FaseDelTorneo()</td>
+                    }
+                    else if (r.Partido.TipoDePartido().Equals("FaseEliminatoria"))
+                    {
+                        <td>@r.Partido.FaseDelTorneo()</td>
+                    }
+                    <td>@r.Partido.DevolverSeleccionesVs()[0].Pais.Nombre vs @r.Partido.DevolverSeleccionesVs()[1].Pais.Nombre</td>
+                    
+                </tr>
+                }
+
+                <a href="~/Operador/MostrarPeriodistas" class="btn btn-primary">Volver a periodistas</a>
+            </tbody>
+        </table>
+
+
+    </div>
